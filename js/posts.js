@@ -6,7 +6,7 @@ checkAuth();
 
 loadPosts();
 
-const postForm = document.querySelector("#post-form");
+const postForm = document.querySelector("#form");
 const logoutBtn = document.querySelector("#logout-btn");
 
 // Handle logout
