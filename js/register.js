@@ -9,8 +9,11 @@ registerForm.addEventListener("submit", async function (e) {
   const form = e.target;
   const email = form.email.value.trim();
   const password = form.password.value;
+  const fieldset = form.querySelector("fieldset");
 
   try {
+    fieldset.disabled = true;
+
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
@@ -32,5 +35,7 @@ registerForm.addEventListener("submit", async function (e) {
   } catch (error) {
     console.log(error);
     displayMessage("#message-container", "error", error.toString());
+  } finally {
+    fieldset.disabled = false;
   }
 });
